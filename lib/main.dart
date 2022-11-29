@@ -30,8 +30,8 @@ class _firstState extends State<first> {
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
     print("This is called1....");
-   ().signIn();
-    print("This is called2...."); final GoogleSignInAccount? googleUser = await GoogleSignIn
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    print("This is called2....");
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
