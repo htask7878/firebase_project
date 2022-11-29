@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class dashboard extends StatefulWidget {
-  const dashboard({super.key});
-
   @override
   State<dashboard> createState() => _dashboardState();
 }
@@ -12,8 +10,16 @@ class _dashboardState extends State<dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      endDrawer: Drawer(
+        width: 200,
+        child: Column(
+          children: [Text("test"), Text("demo")],
+        ),
+      ),
       body: Center(
-        child: Container(height: 200, width: 200, color: Colors.redAccent),
+        child: Column(
+          children: [],
+        ),
       ),
     );
   }
