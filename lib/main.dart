@@ -56,7 +56,7 @@ class _firstState extends State<first> {
       if (user == null) {
         print("This is not possible");
       } else {
-        print("This is  possible");
+        print("This is possible");
         Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context) {
             return dashboard();
@@ -126,7 +126,7 @@ class _firstState extends State<first> {
                   signInWithGoogle().then((value) {
                     print("hardik");
                     if (value != null) {
-                      Navigator.push(context, MaterialPageRoute(
+                      Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) {
                           return dashboard();
                         },
