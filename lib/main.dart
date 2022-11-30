@@ -18,6 +18,7 @@ void main() async {
 
 class first extends StatefulWidget {
   const first({Key? key}) : super(key: key);
+
 //
   @override
   State<first> createState() => _firstState();
@@ -34,7 +35,8 @@ class _firstState extends State<first> {
     print("This is called2....");
 
     // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
     print("This is called3....");
 
     // Create a new credential
@@ -45,24 +47,28 @@ class _firstState extends State<first> {
     // Once signed in, return the UserCredential
     print("This is called4....");
     return await FirebaseAuth.instance.signInWithCredential(credential);
-
   }
 
   @override
   void initState() {
-    super.initState();
+   super.initState();
 
-      final user = FirebaseAuth.instance.currentUser;
-      if (user == null) {
-        print("This is not possible");
-      } else {
-        print("This is possible");
-        Navigator.pushReplacement(context, MaterialPageRoute(
-          builder: (context) {
-            return dashboard();
-          },
-        ));
-      }
+   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+     final user = FirebaseAuth.instance.currentUser;
+     if (user == null) {
+       print("This is not possible");
+     } else {
+       print("This is possible");
+       Navigator.pushReplacement(context, MaterialPageRoute(
+         builder: (context) {
+           return dashboard();
+         },
+       ));
+     }
+
+   });
+
+
   }
 
   @override
