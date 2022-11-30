@@ -30,14 +30,12 @@ class _firstState extends State<first> {
 
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
-    print("This is called1....");
+
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    print("This is called2....");
 
     // Obtain the auth details from the request
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
-    print("This is called3....");
 
     // Create a new credential
     final credential = GoogleAuthProvider.credential(
@@ -45,30 +43,27 @@ class _firstState extends State<first> {
       idToken: googleAuth?.idToken,
     );
     // Once signed in, return the UserCredential
-    print("This is called4....");
+
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   @override
   void initState() {
-   super.initState();
+    super.initState();
 
-   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-     final user = FirebaseAuth.instance.currentUser;
-     if (user == null) {
-       print("This is not possible");
-     } else {
-       print("This is possible");
-       Navigator.pushReplacement(context, MaterialPageRoute(
-         builder: (context) {
-           return dashboard();
-         },
-       ));
-     }
-
-   });
-
-
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        print("This is not possible");
+      } else {
+        print("This is possible");
+        Navigator.pushReplacement(context, MaterialPageRoute(
+          builder: (context) {
+            return dashboard();
+          },
+        ));
+      }
+    });
   }
 
   @override

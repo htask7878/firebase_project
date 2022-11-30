@@ -17,9 +17,8 @@ class _dashboardState extends State<dashboard> {
       print(user!.uid);
     } else {
       print("not login");
-      }
-
-      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +28,9 @@ class _dashboardState extends State<dashboard> {
         width: 200,
         child: Column(
           children: [
-            Text("test"),
-            Text("demo"),
+            SizedBox(
+              height: 20,
+            ),
             IconButton(
                 onPressed: () async {
                   await GoogleSignIn().signOut();
